@@ -30,7 +30,12 @@ namespace TDDCalculator.Operations
 
         public static double Divide(int x, int y)
         {
-            return x / y;
+            if (y == 0)
+            {
+                throw new DivideByZeroException();
+            }
+
+            return (x * 1.0) / y;
         }
 
         #endregion

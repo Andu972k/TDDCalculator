@@ -13,62 +13,47 @@ namespace TDDCalculator.Calculator
         #region Methods
 
 
-        public static string Calculate(string equation)
+        public static string Calculate(string x, string operation, string y)
         {
 
             string result = "";
 
-            equation = RemoveWhitespaces(equation);
+            x = RemoveWhitespaces(x);
 
-            if (CheckForInvalidSigns(equation))
+            operation = RemoveWhitespaces(operation);
+
+            y = RemoveWhitespaces(y);
+
+            if (CheckForInvalidSigns(x) || CheckForInvalidSigns(operation) || CheckForInvalidSigns(y))
             {
                 return "Invalid Sign(s)";
             }
 
-
-            if (equation.Contains("*"))
+            if (operation == "*")
             {
-                string[] numbers = equation.Split("*");
-                int x = Int32.Parse(numbers[0]);
-                int y = Int32.Parse(numbers[1]);
-
-                result = CalculatorOperations.Multiply(x, y).ToString();
+                result = CalculatorOperations.Multiply(Int32.Parse(x), Int32.Parse(y)).ToString();
             }
 
-            if (equation.Contains("/"))
+            if (operation == "/")
             {
-                string[] numbers = equation.Split("/");
-                int x = Int32.Parse(numbers[0]);
-                int y = Int32.Parse(numbers[1]);
-
                 try
                 {
-                    result = CalculatorOperations.Divide(x, y).ToString();
+                    result = CalculatorOperations.Divide(Int32.Parse(x), Int32.Parse(y)).ToString();
                 }
                 catch (DivideByZeroException e)
                 {
                     return "Can't divide by zero";
                 }
-
-                
             }
 
-            if (equation.Contains("+"))
+            if (operation == "+")
             {
-                string[] numbers = equation.Split("+");
-                int x = Int32.Parse(numbers[0]);
-                int y = Int32.Parse(numbers[1]);
-
-                result = CalculatorOperations.Add(x, y).ToString();
+                result = CalculatorOperations.Add(Int32.Parse(x), Int32.Parse(y)).ToString();
             }
 
-            if (equation.Contains("-"))
+            if (operation == "-")
             {
-                string[] numbers = equation.Split("-");
-                int x = Int32.Parse(numbers[0]);
-                int y = Int32.Parse(numbers[1]);
-
-                result = CalculatorOperations.Subtract(x, y).ToString();
+                result = CalculatorOperations.Subtract(Int32.Parse(x), Int32.Parse(y)).ToString();
             }
 
             return $"= {result}";

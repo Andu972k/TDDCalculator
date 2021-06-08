@@ -36,7 +36,7 @@ namespace TDDCalculatorTests
             int x = 0;
             int y = 6;
 
-            double expectedResult = x / y;
+            double expectedResult = x / (y * 1.0);
 
             //Act
 
@@ -55,7 +55,7 @@ namespace TDDCalculatorTests
             int x = 10;
             int y = 3;
 
-            double expectedResult = x / y;
+            double expectedResult = x / (y * 1.0);
 
             //Act
 
@@ -75,7 +75,7 @@ namespace TDDCalculatorTests
             int x = 25;
             int y = -6;
 
-            double expectedResult = x / y;
+            double expectedResult = x / (y * 1.0);
 
             //Act
 
@@ -94,7 +94,7 @@ namespace TDDCalculatorTests
             int x = -254;
             int y = 6;
 
-            double expectedResult = x / y;
+            double expectedResult = x / (y * 1.0);
 
             //Act
 
@@ -113,7 +113,7 @@ namespace TDDCalculatorTests
             int x = -100;
             int y = -16;
 
-            double expectedResult = x / y;
+            double expectedResult = x / (y * 1.0);
 
             //Act
 

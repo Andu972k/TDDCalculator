@@ -18,13 +18,13 @@ namespace TDDCalculatorTests
             int x = 5;
             int y = 3;
 
-            string equation = x + "+" + y;
+            string operation = "+";
 
             string expectedResult = $"= {x + y}";
 
             //Act
 
-            string actualResult = Calculator.Calculate(equation);
+            string actualResult = Calculator.Calculate(x.ToString(), operation, y.ToString());
 
             //Assert
 
@@ -43,13 +43,13 @@ namespace TDDCalculatorTests
             int x = 8;
             int y = 3;
 
-            string equation = x + "-" + y;
+            string operation = "-";
 
             string expectedResult = $"= {x - y}";
 
             //Act
 
-            string actualResult = Calculator.Calculate(equation);
+            string actualResult = Calculator.Calculate(x.ToString(), operation, y.ToString());
 
             //Assert
 
@@ -65,13 +65,13 @@ namespace TDDCalculatorTests
             int x = 2;
             int y = 3;
 
-            string equation = x + "*" + y;
+            string operation = "*";
 
             string expectedResult = $"= {x * y}";
 
             //Act
 
-            string actualResult = Calculator.Calculate(equation);
+            string actualResult = Calculator.Calculate(x.ToString(), operation, y.ToString());
 
             //Assert
 
@@ -87,13 +87,13 @@ namespace TDDCalculatorTests
             int x = 8;
             int y = 4;
 
-            string equation = x + "/" + y;
+            string operation = "/";
 
             string expectedResult = $"= {x / y}";
 
             //Act
 
-            string actualResult = Calculator.Calculate(equation);
+            string actualResult = Calculator.Calculate(x.ToString(), operation, y.ToString());
 
             //Assert
 
@@ -108,13 +108,13 @@ namespace TDDCalculatorTests
             int x = 8;
             int y = 0;
 
-            string equation = x + "/" + y;
+            string operation = "/";
 
             string expectedResult = "Can't divide by zero";
 
             //Act
 
-            string actualResult = Calculator.Calculate(equation);
+            string actualResult = Calculator.Calculate(x.ToString(), operation, y.ToString());
 
             //Assert
 
@@ -130,13 +130,13 @@ namespace TDDCalculatorTests
             int x = -5;
             int y = -3;
 
-            string equation = x + "+" + y;
+            string operation = "+";
 
             string expectedResult = $"= {x + y}";
 
             //Act
 
-            string actualResult = Calculator.Calculate(equation);
+            string actualResult = Calculator.Calculate(x.ToString(), operation, y.ToString());
 
             //Assert
 
@@ -155,13 +155,13 @@ namespace TDDCalculatorTests
             int x = 8;
             int y = -3;
 
-            string equation = x + "-" + y;
+            string operation = "-";
 
             string expectedResult = $"= {x - y}";
 
             //Act
 
-            string actualResult = Calculator.Calculate(equation);
+            string actualResult = Calculator.Calculate(x.ToString(), operation, y.ToString());
 
             //Assert
 
@@ -177,13 +177,13 @@ namespace TDDCalculatorTests
             int x = -2;
             int y = -3;
 
-            string equation = x + "*" + y;
+            string operation = "*";
 
             string expectedResult = $"= {x * y}";
 
             //Act
 
-            string actualResult = Calculator.Calculate(equation);
+            string actualResult = Calculator.Calculate(x.ToString(), operation, y.ToString());
 
             //Assert
 
@@ -199,13 +199,13 @@ namespace TDDCalculatorTests
             int x = -8;
             int y = 4;
 
-            string equation = x + "/" + y;
+            string operation = "/";
 
             string expectedResult = $"= {x / y}";
 
             //Act
 
-            string actualResult = Calculator.Calculate(equation);
+            string actualResult = Calculator.Calculate(x.ToString(), operation, y.ToString());
 
             //Assert
 
@@ -221,31 +221,23 @@ namespace TDDCalculatorTests
             int x = 5;
             int y = 3;
 
-            string addtionEquation = x + " " + "+" + " " + y;
-
             string addtionExpectedResult = $"= {x + y}";
-
-            string subtractionEquation = x + " " + "-" + " " + y;
 
             string subtractionExpectedResult = $"= {x - y}";
 
-            string multiplicationEquation = x + " " + "*" + " " + y;
-
             string multiplicationExpectedResult = $"= {x * y}";
 
-            string divisionEquation = x + " " + "/" + " " + y;
-
-            string divisionExpectedResult = $"= {x / y}";
+            string divisionExpectedResult = $"= {x / (y * 1.0)}";
 
             //Act
 
-            string addtionActualResult = Calculator.Calculate(addtionEquation);
+            string addtionActualResult = Calculator.Calculate(x.ToString(), "+", y.ToString());
 
-            string subtractionActualResult = Calculator.Calculate(subtractionEquation);
+            string subtractionActualResult = Calculator.Calculate(x.ToString(), "-", y.ToString());
 
-            string multiplicationActualResult = Calculator.Calculate(multiplicationEquation);
+            string multiplicationActualResult = Calculator.Calculate(x.ToString(), "*", y.ToString());
 
-            string divisionActualResult = Calculator.Calculate(divisionEquation);
+            string divisionActualResult = Calculator.Calculate(x.ToString(), "/", y.ToString());
 
             //Assert
 
@@ -260,16 +252,16 @@ namespace TDDCalculatorTests
         {
             //Arrange
 
-            int x = 8;
-            int y = 4;
+            string x = "8?";
+            string y = "4";
 
-            string equation = x + "/" + "?" + y;
+            string operation ="/" + "?";
 
             string expectedResult = "Invalid Sign(s)";
 
             //Act
 
-            string actualResult = Calculator.Calculate(equation);
+            string actualResult = Calculator.Calculate(x, operation, y);
 
             //Assert
 
